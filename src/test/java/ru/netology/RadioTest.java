@@ -14,6 +14,7 @@ class RadioTest {
         assertEquals(1, radio.getCurrentChannel());
     }
 
+
     @Test
     public void setCurrentChannel0(){
         Radio radio = new Radio(9,0);
@@ -29,6 +30,7 @@ class RadioTest {
         radio.setCurrentChannel(5);
         assertEquals(5, radio.getCurrentChannel());
     }
+
 
     @Test
     public void setCurrentChannel9(){

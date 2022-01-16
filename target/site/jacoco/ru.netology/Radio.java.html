@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Radio.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">syndrome</a> &gt; <a href="index.source.html" class="el_package">ru.netology</a> &gt; <span class="el_source">Radio.java</span></div><h1>Radio.java</h1><pre class="source lang-java linenums">package ru.netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+
+
 public class Radio {
 
 
-<span class="fc" id="L6">    private int minChannel = 0;</span>
-<span class="fc" id="L7">    private int maxChannel = 9;</span>
-<span class="fc" id="L8">    private int minVolume = 0;</span>
-<span class="fc" id="L9">    private int maxVolume = 100;</span>
+<span class="fc" id="L13">    private int minChannel = 0;</span>
+<span class="fc" id="L14">    private int maxChannel = 9;</span>
+<span class="fc" id="L15">    private int minVolume = 0;</span>
+<span class="fc" id="L16">    private int maxVolume = 100;</span>
     private int currentVolume;
     private int currentChannel;
 
-<span class="fc" id="L13">    public Radio() {</span>
-<span class="fc" id="L14">    }</span>
+<span class="fc" id="L20">    public Radio() {</span>
+<span class="fc" id="L21">    }</span>
 
-<span class="fc" id="L16">    public Radio(int maxChannel, int currentChannel) {</span>
-<span class="fc" id="L17">        this.maxChannel = maxChannel;</span>
-<span class="fc" id="L18">        this.currentChannel = currentChannel;</span>
-<span class="fc" id="L19">    }</span>
+<span class="fc" id="L23">    public Radio(int maxChannel, int currentChannel) {</span>
+<span class="fc" id="L24">        this.maxChannel = maxChannel;</span>
+<span class="fc" id="L25">        this.currentChannel = currentChannel;</span>
+<span class="fc" id="L26">    }</span>
 
     //public Radio(int minChannel, int maxChannel, int minVolume, int maxVolume, int currentVolume, int currentChannel) {
     //this.minChannel = minChannel;
@@ -28,42 +35,42 @@ public class Radio {
 
 
     public int getCurrentChannel() {
-<span class="fc" id="L31">        return currentChannel;</span>
+<span class="fc" id="L38">        return currentChannel;</span>
     }
 
 
     public void setCurrentChannel(int currentChannel) {
-<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (currentChannel &gt; maxChannel) {</span>
-<span class="fc" id="L37">            this.currentChannel = maxChannel;</span>
-<span class="fc" id="L38">            return;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (currentChannel &gt; maxChannel) {</span>
+<span class="fc" id="L44">            this.currentChannel = maxChannel;</span>
+<span class="fc" id="L45">            return;</span>
         }
 
-<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (currentChannel &lt; minChannel) {</span>
-<span class="fc" id="L42">            this.currentChannel = minChannel;</span>
-<span class="fc" id="L43">            return;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (currentChannel &lt; minChannel) {</span>
+<span class="fc" id="L49">            this.currentChannel = minChannel;</span>
+<span class="fc" id="L50">            return;</span>
         }
-<span class="fc" id="L45">        this.currentChannel = currentChannel;</span>
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L52">        this.currentChannel = currentChannel;</span>
+<span class="fc" id="L53">    }</span>
 
     public void nextChannel() {
-<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (currentChannel &lt; 9) {</span>
-<span class="fc" id="L50">            this.currentChannel = currentChannel + 1;</span>
-<span class="fc" id="L51">            return;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (currentChannel &lt; 9) {</span>
+<span class="fc" id="L57">            this.currentChannel = currentChannel + 1;</span>
+<span class="fc" id="L58">            return;</span>
         }
 
-<span class="fc" id="L54">        this.currentChannel = minChannel;</span>
-<span class="fc" id="L55">        return;</span>
+<span class="fc" id="L61">        this.currentChannel = minChannel;</span>
+<span class="fc" id="L62">        return;</span>
 
     }
 
     public void prevChannel() {
-<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (currentChannel &gt; 0) {</span>
-<span class="fc" id="L61">            this.currentChannel = currentChannel - 1;</span>
-<span class="fc" id="L62">            return;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (currentChannel &gt; 0) {</span>
+<span class="fc" id="L68">            this.currentChannel = currentChannel - 1;</span>
+<span class="fc" id="L69">            return;</span>
         }
 
-<span class="fc" id="L65">        this.currentChannel = maxChannel;</span>
-<span class="fc" id="L66">        return;</span>
+<span class="fc" id="L72">        this.currentChannel = maxChannel;</span>
+<span class="fc" id="L73">        return;</span>
 
     }
 
@@ -73,36 +80,36 @@ public class Radio {
     //private int maxVolume = 10;
 
     public int getCurrentVolume() {
-<span class="fc" id="L76">        return currentVolume;</span>
+<span class="fc" id="L83">        return currentVolume;</span>
     }
 
     public void setCurrentVolume(int currentVolume) {
-<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (currentVolume &gt; maxVolume) {</span>
-<span class="fc" id="L81">            this.currentVolume = maxVolume;</span>
-<span class="fc" id="L82">            return;</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        if (currentVolume &gt; maxVolume) {</span>
+<span class="fc" id="L88">            this.currentVolume = maxVolume;</span>
+<span class="fc" id="L89">            return;</span>
         }
-<span class="fc" id="L84">        this.currentVolume = currentVolume;</span>
+<span class="fc" id="L91">        this.currentVolume = currentVolume;</span>
 
-<span class="fc bfc" id="L86" title="All 2 branches covered.">        if (currentVolume &lt; minVolume) {</span>
-<span class="fc" id="L87">            this.currentVolume = minVolume;</span>
-<span class="fc" id="L88">            return;</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        if (currentVolume &lt; minVolume) {</span>
+<span class="fc" id="L94">            this.currentVolume = minVolume;</span>
+<span class="fc" id="L95">            return;</span>
         }
-<span class="fc" id="L90">        this.currentVolume = currentVolume;</span>
-<span class="fc" id="L91">    }</span>
+<span class="fc" id="L97">        this.currentVolume = currentVolume;</span>
+<span class="fc" id="L98">    }</span>
 
 
     public void increaseVolume() {
-<span class="fc bfc" id="L95" title="All 2 branches covered.">        if (currentVolume &lt; 10) {</span>
-<span class="fc" id="L96">            this.currentVolume = currentVolume + 1;</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        if (currentVolume &lt; 10) {</span>
+<span class="fc" id="L103">            this.currentVolume = currentVolume + 1;</span>
         }
-<span class="fc" id="L98">        return;</span>
+<span class="fc" id="L105">        return;</span>
     }
 
     public void decreaseVolume() {
-<span class="fc bfc" id="L102" title="All 2 branches covered.">        if (currentVolume &gt; 0) {</span>
-<span class="fc" id="L103">            this.currentVolume = currentVolume - 1;</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">        if (currentVolume &gt; 0) {</span>
+<span class="fc" id="L110">            this.currentVolume = currentVolume - 1;</span>
         }
-<span class="fc" id="L105">        return;</span>
+<span class="fc" id="L112">        return;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
