@@ -1,107 +1,81 @@
 package ru.netology;
 
 public class Radio {
-
-
-    private int minChannel = 0;
-    private int maxChannel = 9;
-    private int minVolume = 0;
-    private int maxVolume = 100;
+    private int currentStation;
     private int currentVolume;
-    private int currentChannel;
+    private int numberStation = 10;
 
     public Radio() {
     }
 
-    public Radio(int maxChannel, int currentChannel) {
-        this.maxChannel = maxChannel;
-        this.currentChannel = currentChannel;
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
     }
 
-    //public Radio(int minChannel, int maxChannel, int minVolume, int maxVolume, int currentVolume, int currentChannel) {
-    //this.minChannel = minChannel;
-    //this.maxChannel = maxChannel;
-    //this.minVolume = minVolume;
-    //this.maxVolume = maxVolume;
-    //this.currentVolume = currentVolume;
-    //this.currentChannel = currentChannel;
-
-
-    public int getCurrentChannel() {
-        return currentChannel;
+    public int getNumberStation() {
+        return numberStation;
     }
 
-
-    public void setCurrentChannel(int currentChannel) {
-        if (currentChannel > maxChannel) {
-            this.currentChannel = maxChannel;
+    public void setNumberStation(int numberStation) {
+        if (numberStation < 0) {
             return;
         }
-
-        if (currentChannel < minChannel) {
-            this.currentChannel = minChannel;
-            return;
-        }
-        this.currentChannel = currentChannel;
+        this.numberStation = numberStation;
     }
 
-    public void nextChannel() {
-        if (currentChannel < 9) {
-            this.currentChannel = currentChannel + 1;
-            return;
-        }
-
-        this.currentChannel = minChannel;
-        return;
-
+    public int getCurrentStation() {
+        return currentStation;
     }
-
-    public void prevChannel() {
-        if (currentChannel > 0) {
-            this.currentChannel = currentChannel - 1;
-            return;
-        }
-
-        this.currentChannel = maxChannel;
-        return;
-
-    }
-
-
-    //private int currentVolume;
-    //private int minVolume = 0;
-    //private int maxVolume = 10;
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > maxVolume) {
-            this.currentVolume = maxVolume;
+    public void setCurrentStation(int currentStation) {
+        if (currentStation > numberStation - 1) {
             return;
         }
-        this.currentVolume = currentVolume;
+        if (currentStation < 0) {
+            return;
+        }
+        this.currentStation = currentStation;
+    }
 
-        if (currentVolume < minVolume) {
-            this.currentVolume = minVolume;
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume > 100) {
+            return;
+        }
+        if (currentVolume < 0) {
             return;
         }
         this.currentVolume = currentVolume;
     }
 
+    public void increaseStation() {
+        if (currentStation < numberStation - 1) {
+            currentStation++;
+        } else {
+            currentStation = 0;
+        }
+    }
+
+    public void decreaseStation() {
+        if (currentStation > 0) {
+            currentStation--;
+        } else {
+            currentStation = numberStation - 1;
+        }
+    }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
-            this.currentVolume = currentVolume + 1;
+        if (currentVolume < 100) {
+            currentVolume++;
         }
-        return;
     }
 
     public void decreaseVolume() {
         if (currentVolume > 0) {
-            this.currentVolume = currentVolume - 1;
+            currentVolume--;
         }
-        return;
     }
 }
